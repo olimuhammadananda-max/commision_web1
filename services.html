@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, viewport-fit=cover">
+<title>PocaPoucha - Services</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap">
+<style>
+:root{
+  --peach:#F7BD8E;--coral:#F29494;--lav:#F3B9E5;--pink:#ED7CB8;--blush:#DC5F82;
+  --bg:#FFFFFF;--surface:#FFF6F1;--bar:#FFFFFF;--on:#1A1A1A;--ink:#1A1A1A;
+  --nav-h:60px;
+}
+html{scroll-behavior:smooth;scroll-padding-top:calc(env(safe-area-inset-top,0px) + var(--nav-h));font-size:16px}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;min-width:320px;background:var(--bg);color:var(--ink);font-family:"Roboto",sans-serif;font-size:1rem;line-height:1.6;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:30;background:var(--bar)}
+h1,h2,h3{font-weight:700;margin:0}
+button{font:inherit;color:inherit;cursor:pointer}
+:focus-visible{outline:3px solid var(--pink);outline-offset:2px}
+.wrap{max-width:1000px;margin:0 auto;padding:0 16px}
+.rule{border:0;border-top:1px solid #E0E0E0;margin:16px 0}
+p{margin:0 0 10px;color:var(--ink)}
+img{max-width:100%}
+
+.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--bar);box-shadow:0 2px 10px rgba(0,0,0,0.06)}
+.bar{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;max-width:1000px;margin:0 auto;padding:0 16px;min-height:var(--nav-h)}
+.brand{font-weight:700;font-size:1.4rem;color:var(--ink);text-decoration:none;padding:10px 0;flex-shrink:0}
+.burger{background:none;border:0;padding:10px;display:grid;gap:5px;min-width:44px;min-height:44px;place-items:center}
+.burger span{display:block;width:24px;height:2px;background:var(--ink);border-radius:2px}
+#menu{display:none;width:100%;padding:0 0 12px}
+#menu.open{display:block}
+#menu ul{list-style:none;margin:0;padding:0}
+#menu a,#menu .top-link{display:block;width:100%;text-align:left;padding:11px 14px;border:0;border-radius:10px;background:none;color:var(--ink);text-decoration:none;font-size:1rem;min-height:44px}
+#menu a:hover,#menu .top-link:hover{background:var(--lav)}
+.sub{display:none;padding-left:14px}
+li.open>.sub{display:block}
+@media(min-width:800px){
+  .burger{display:none}
+  #menu{display:block!important;width:auto;padding:0}
+  #menu>ul{display:flex;gap:4px;align-items:center}
+  .has-sub{position:relative}
+  .sub{position:absolute;top:calc(100% + 4px);left:0;min-width:200px;padding:6px;background:#fff;border-radius:12px;box-shadow:0 4px 16px rgba(0,0,0,0.1)}
+}
+
+.hero{padding:clamp(28px,6vw,56px) 0 clamp(20px,4vw,40px)}
+.hero h1{font-size:clamp(2.2rem,8vw,4.5rem);line-height:1.1;text-align:center}
+section{padding:clamp(20px,4vw,36px) 0}
+h2{font-size:clamp(1.5rem,4vw,2rem);margin-bottom:14px}
+
+/* comms card */
+.comms-wide-card{
+  width:100%;border:0;background:var(--pink);border-radius:16px;overflow:hidden;
+  text-align:left;padding:0;box-shadow:0 4px 12px rgba(0,0,0,0.06);
+  transition:transform .2s,box-shadow .2s;display:flex;flex-direction:column;cursor:pointer;
+}
+@media(min-width:600px){.comms-wide-card{flex-direction:row;align-items:center}}
+.comms-wide-card:hover{transform:translateY(-3px);box-shadow:0 6px 16px rgba(0,0,0,0.1)}
+.comms-wide-img{width:100%;aspect-ratio:16/9;background:var(--lav);overflow:hidden;flex-shrink:0}
+@media(min-width:600px){.comms-wide-img{width:40%;aspect-ratio:4/3}}
+.comms-wide-img img{width:100%;height:100%;object-fit:cover;display:block}
+.comms-wide-info{padding:clamp(16px,3vw,24px);flex:1}
+.comms-wide-info h3{font-size:clamp(1.3rem,4vw,2rem);margin-bottom:8px}
+.comms-wide-info span{font-size:.95rem;opacity:.9}
+
+.soon{padding:clamp(28px,5vw,48px) 20px;text-align:center;border-radius:16px;background:var(--surface);box-shadow:0 4px 12px rgba(0,0,0,0.05)}
+.soon h3{font-size:clamp(1.4rem,4vw,2.2rem)}
+
+/* dialog */
+dialog{
+  width:min(480px,92vw);border:0;border-radius:16px;
+  background:var(--surface);color:var(--ink);padding:clamp(16px,3vw,24px);
+  box-shadow:0 10px 30px rgba(0,0,0,0.15);
+}
+dialog::backdrop{background:rgba(0,0,0,0.4)}
+.dhead{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;gap:12px}
+.dhead h3{font-size:clamp(1.2rem,4vw,1.8rem);flex:1}
+.x{width:40px;height:40px;border-radius:50%;border:0;background:var(--peach);display:grid;place-items:center;font-size:1.2rem;flex-shrink:0;min-width:44px;min-height:44px}
+.x:hover{background:var(--pink)}
+.dimg{aspect-ratio:16/10;border-radius:12px;background:var(--lav);margin-bottom:14px;overflow:hidden}
+.dimg img{width:100%;height:100%;object-fit:cover;display:block}
+
+footer{padding:20px 16px calc(20px + env(safe-area-inset-bottom,0px));text-align:center;font-size:.9rem;color:#888}
+</style>
+</head>
+<body>
+<header class="nav">
+  <div class="bar">
+    <a href="index.html" class="brand">PocaPoucha</a>
+    <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false" aria-controls="menu"><span></span><span></span><span></span></button>
+    <nav id="menu" aria-label="Main">
+      <ul>
+        <li class="has-sub">
+          <a href="index.html" class="top-link">Home ▾</a>
+          <ul class="sub">
+            <li><a href="index.html#about">About</a></li>
+            <li><a href="index.html#profile">Profile</a></li>
+            <li><a href="index.html#whatsnew">What's new</a></li>
+            <li><a href="index.html#loyalty">Leaderboard / Loyalty card</a></li>
+          </ul>
+        </li>
+        <li class="has-sub">
+          <a href="services.html" class="top-link">Services ▾</a>
+          <ul class="sub">
+            <li><a href="services.html#shop">Shop</a></li>
+            <li><a href="services.html#comms">Comms</a></li>
+          </ul>
+        </li>
+        <li><a href="portofolio.html">Portfolio</a></li>
+        <li><a href="TOS.html">TOS</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main>
+<div class="wrap" id="services">
+  <div class="hero"><h1>Our Services</h1></div>
+  <hr class="rule">
+
+  <section id="comms">
+    <h2>Comms</h2>
+    <button class="comms-wide-card" id="commsBtn" data-title="Commission Open" data-img="/images/commision1.png" data-desc="Slot komisi sedang <strong>buka</strong>! Silakan cek TOS terlebih dahulu sebelum memesan slot Anda.">
+      <div class="comms-wide-img">
+        <img src="/images/commision1.png" alt="Commission Open" loading="lazy">
+      </div>
+      <div class="comms-wide-info">
+        <h3>Commission Open</h3>
+        <span>Tap to view details, prices, and slot status!</span>
+      </div>
+    </button>
+  </section>
+  <hr class="rule">
+
+  <section id="shop">
+    <h2>Shop</h2>
+    <div class="soon">
+      <h3>Coming soon</h3>
+      <p style="margin-top:10px">Mohon bersabar, shop-nya masih dalam tahap pengembangan ya!</p>
+    </div>
+  </section>
+</div>
+</main>
+
+<dialog id="dlg" aria-labelledby="dtitle">
+  <div class="dhead">
+    <h3 id="dtitle"></h3>
+    <button class="x" id="dclose" aria-label="Close">×</button>
+  </div>
+  <div class="dimg"><img id="dlg-img" src="" alt="Popup Preview" loading="lazy"></div>
+  <p id="dlg-desc"></p>
+</dialog>
+
+<hr class="rule">
+<footer><p>© PocaPoucha</p></footer>
+
+<script>
+(function(){
+  var $=function(s){return document.querySelector(s)},$$=function(s){return[].slice.call(document.querySelectorAll(s))};
+  var burger=$('#burger'),menu=$('#menu');
+  burger.addEventListener('click',function(){var o=menu.classList.toggle('open');burger.setAttribute('aria-expanded',o)});
+  $$('.has-sub>.top-link').forEach(function(b){
+    b.addEventListener('click',function(e){
+      var li=b.parentNode,isOpen=li.classList.contains('open');
+      if(window.innerWidth<800||!isOpen) e.preventDefault();
+      $$('.has-sub').forEach(function(x){x.classList.remove('open')});
+      if(!isOpen) li.classList.add('open');
+    });
+  });
+  document.addEventListener('click',function(e){if(!e.target.closest('.has-sub')&&!e.target.closest('#burger')) $$('.has-sub').forEach(function(x){x.classList.remove('open')})});
+  $$('#menu a:not(.top-link)').forEach(function(a){a.addEventListener('click',function(){menu.classList.remove('open');burger.setAttribute('aria-expanded','false');$$('.has-sub').forEach(function(x){x.classList.remove('open')})})});
+
+  var dlg=$('#dlg'),btn=$('#commsBtn');
+  if(btn){
+    btn.addEventListener('click',function(){
+      $('#dtitle').textContent=btn.dataset.title;
+      $('#dlg-img').src=btn.dataset.img;
+      $('#dlg-desc').innerHTML=btn.dataset.desc||'';
+      dlg.showModal();
+    });
+  }
+  $('#dclose').addEventListener('click',function(){dlg.close()});
+  dlg.addEventListener('click',function(e){if(e.target===dlg) dlg.close()});
+})();
+</script>
+</body>
+</html>

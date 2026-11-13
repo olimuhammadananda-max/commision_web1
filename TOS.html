@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, viewport-fit=cover">
+<title>PocaPoucha - Terms of Service</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap">
+<style>
+:root{
+  --peach:#F7BD8E;--coral:#F29494;--lav:#F3B9E5;--pink:#ED7CB8;--blush:#DC5F82;
+  --bg:#FFFFFF;--surface:#FFF6F1;--bar:#FFFFFF;--on:#1A1A1A;--ink:#1A1A1A;
+  --nav-h:60px;
+}
+html{scroll-behavior:smooth;scroll-padding-top:calc(env(safe-area-inset-top,0px) + var(--nav-h));font-size:16px}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;min-width:320px;background:var(--bg);color:var(--ink);font-family:"Roboto",sans-serif;font-size:1rem;line-height:1.6;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:30;background:var(--bar)}
+h1,h2,h3,h4{font-weight:700;margin:0}
+button{font:inherit;color:inherit;cursor:pointer}
+:focus-visible{outline:3px solid var(--pink);outline-offset:2px}
+.wrap{max-width:1000px;margin:0 auto;padding:0 16px}
+.rule{border:0;border-top:1px solid #E0E0E0;margin:16px 0}
+p{margin:0 0 10px;color:var(--ink)}
+img{max-width:100%}
+
+.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--bar);box-shadow:0 2px 10px rgba(0,0,0,0.06)}
+.bar{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;max-width:1000px;margin:0 auto;padding:0 16px;min-height:var(--nav-h)}
+.brand{font-weight:700;font-size:1.4rem;color:var(--ink);text-decoration:none;padding:10px 0;flex-shrink:0}
+.burger{background:none;border:0;padding:10px;display:grid;gap:5px;min-width:44px;min-height:44px;place-items:center}
+.burger span{display:block;width:24px;height:2px;background:var(--ink);border-radius:2px}
+#menu{display:none;width:100%;padding:0 0 12px}
+#menu.open{display:block}
+#menu ul{list-style:none;margin:0;padding:0}
+#menu a,#menu .top-link{display:block;width:100%;text-align:left;padding:11px 14px;border:0;border-radius:10px;background:none;color:var(--ink);text-decoration:none;font-size:1rem;min-height:44px}
+#menu a:hover,#menu .top-link:hover{background:var(--lav)}
+.sub{display:none;padding-left:14px}
+li.open>.sub{display:block}
+@media(min-width:800px){
+  .burger{display:none}
+  #menu{display:block!important;width:auto;padding:0}
+  #menu>ul{display:flex;gap:4px;align-items:center}
+  .has-sub{position:relative}
+  .sub{position:absolute;top:calc(100% + 4px);left:0;min-width:200px;padding:6px;background:#fff;border-radius:12px;box-shadow:0 4px 16px rgba(0,0,0,0.1)}
+}
+
+.hero{padding:clamp(28px,6vw,56px) 0 clamp(20px,4vw,40px)}
+.hero h1{font-size:clamp(2.2rem,8vw,4.5rem);line-height:1.1;text-align:center}
+section{padding:clamp(20px,4vw,36px) 0}
+h2{font-size:clamp(1.5rem,4vw,2rem);margin-bottom:14px}
+
+.tos-card{background:var(--surface);border-radius:16px;padding:clamp(16px,4vw,28px);box-shadow:0 4px 16px rgba(0,0,0,0.05)}
+.tos{max-width:70ch}
+.tos h3{
+  font-size:clamp(1rem,3vw,1.3rem);
+  margin:24px 0 8px;
+  color:var(--on);
+  text-transform:uppercase;
+  letter-spacing:.5px;
+  border-bottom:2px dashed var(--pink);
+  padding-bottom:4px;
+}
+.tos h3:first-child{margin-top:0}
+.tos h4{font-size:1.05rem;margin:12px 0 4px}
+.tos ul{margin:0 0 14px;padding-left:20px}
+.tos li{margin-bottom:5px;font-size:.95rem}
+.tos p{font-size:.95rem}
+.contact-list{list-style:none;padding-left:0!important}
+.contact-list li{margin-bottom:4px}
+
+footer{padding:20px 16px calc(20px + env(safe-area-inset-bottom,0px));text-align:center;font-size:.9rem;color:#888}
+</style>
+</head>
+<body>
+<header class="nav">
+  <div class="bar">
+    <a href="index.html" class="brand">PocaPoucha</a>
+    <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false" aria-controls="menu"><span></span><span></span><span></span></button>
+    <nav id="menu" aria-label="Main">
+      <ul>
+        <li class="has-sub">
+          <a href="index.html" class="top-link">Home ▾</a>
+          <ul class="sub">
+            <li><a href="index.html#about">About</a></li>
+            <li><a href="index.html#profile">Profile</a></li>
+            <li><a href="index.html#whatsnew">What's new</a></li>
+            <li><a href="index.html#loyalty">Leaderboard / Loyalty card</a></li>
+          </ul>
+        </li>
+        <li class="has-sub">
+          <a href="services.html" class="top-link">Services ▾</a>
+          <ul class="sub">
+            <li><a href="services.html#shop">Shop</a></li>
+            <li><a href="services.html#comms">Comms</a></li>
+          </ul>
+        </li>
+        <li><a href="portofolio.html">Portfolio</a></li>
+        <li><a href="TOS.html">TOS</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main>
+<div class="wrap">
+  <div class="hero"><h1>Terms of Service</h1></div>
+  <hr class="rule">
+  <section id="tos">
+    <h2>Terms & Conditions</h2>
+    <div class="tos-card">
+      <div class="tos">
+        <h3>General</h3>
+        <ul>
+          <li>I may decline if I feel that it is too difficult for me to draw your character.</li>
+          <li>Please provide as much detailed references upfront as possible!</li>
+          <li>The price listed is the price for personal use.</li>
+          <li>Extra charge for detailed background, items, assets and any detailed additional + $5–$30.</li>
+          <li>I will publish the commissioned artwork on my social media and portfolio (Private commission will be charged extra).</li>
+          <li>The price on the list is the per character's price.</li>
+        </ul>
+
+        <h3>Payments</h3>
+        <ul>
+          <li>The price could change every time.</li>
+          <li>I apply the pay-first and pay-after-sketch method.</li>
+        </ul>
+
+        <h3>Revisions</h3>
+        <ul>
+          <li>Any major changes will incur additional charges — like the placement of poses, clothes, backgrounds or something that has to be completely redrawn.</li>
+          <li>If more than 3 revisions during sketching, additional fees will apply.</li>
+          <li>Color changes during staining can be done a maximum of 1 time.</li>
+          <li>If more than max revisions, additional price +$5/revision.</li>
+        </ul>
+
+        <h3>Deadlines & Delivery</h3>
+        <ul>
+          <li>It takes 14–21 days to finish your request (depending on your queue).</li>
+          <li>Additional deadline will be charged extra.</li>
+        </ul>
+
+        <h3>Use</h3>
+        <h4>Personal use</h4>
+        <p>You may use artwork for personal use as long as it doesn't gain any profit.</p>
+        <h4>Commercial use</h4>
+        <ul>
+          <li>Type 1: Price ×2</li>
+        </ul>
+        <p>When the artwork is a part of a product, services, or promotional material.<br>
+        e.g. Cover art for product / packaging art, Banner / Thumbnail for YouTube or Twitch, etc.</p>
+
+        <h3>Intellectual Property Rights</h3>
+        <ul>
+          <li>I retain full copyright to my artwork.</li>
+          <li>You may not claim the commission artwork was created by you.</li>
+          <li>You may not alter the work of art by making extensive edits, or turning it into an AI work.</li>
+          <li>You may not use the commissioned work for NFT-related usage or AI training purposes.</li>
+          <li>Commissions with personal use are strictly prohibited from selling or using the artwork in any form of physical goods or for any purpose which will gain profit.</li>
+          <li>You may upload the commission to any of your social media platforms with credit to me as the artist.</li>
+        </ul>
+
+        <h3>Refunds</h3>
+        <p>Refunds are not allowed, unless I haven't started your commission.</p>
+
+        <h3>Communication</h3>
+        <p>You can find me on:</p>
+        <ul class="contact-list">
+          <li><strong>Email:</strong> cimellaaa@gmail.com</li>
+          <li><strong>Instagram:</strong> Cimellart</li>
+          <li><strong>X:</strong> CimellaArt</li>
+          <li><strong>Discord:</strong> cimella.</li>
+        </ul>
+        <p><em>My English is still basic, so please be patient. Thank you ♡</em></p>
+      </div>
+    </div>
+  </section>
+</div>
+</main>
+
+<hr class="rule">
+<footer><p>© PocaPoucha</p></footer>
+
+<script>
+(function(){
+  var $=function(s){return document.querySelector(s)},$$=function(s){return[].slice.call(document.querySelectorAll(s))};
+  var burger=$('#burger'),menu=$('#menu');
+  burger.addEventListener('click',function(){var o=menu.classList.toggle('open');burger.setAttribute('aria-expanded',o)});
+  $$('.has-sub>.top-link').forEach(function(b){
+    b.addEventListener('click',function(e){
+      var li=b.parentNode,isOpen=li.classList.contains('open');
+      if(window.innerWidth<800||!isOpen) e.preventDefault();
+      $$('.has-sub').forEach(function(x){x.classList.remove('open')});
+      if(!isOpen) li.classList.add('open');
+    });
+  });
+  document.addEventListener('click',function(e){if(!e.target.closest('.has-sub')&&!e.target.closest('#burger')) $$('.has-sub').forEach(function(x){x.classList.remove('open')})});
+  $$('#menu a:not(.top-link)').forEach(function(a){a.addEventListener('click',function(){menu.classList.remove('open');burger.setAttribute('aria-expanded','false');$$('.has-sub').forEach(function(x){x.classList.remove('open')})})});
+})();
+</script>
+</body>
+</html>

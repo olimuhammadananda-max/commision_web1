@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, viewport-fit=cover">
+<title>PocaPoucha - Home</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap">
+<style>
+:root{
+  --peach:#F7BD8E;
+  --coral:#F29494;
+  --lav:#F3B9E5;
+  --pink:#ED7CB8;
+  --blush:#DC5F82;
+  --bg:#FFFFFF;
+  --surface:#FFF6F1;
+  --bar:#FFFFFF;
+  --on:#1A1A1A;
+  --ink:#1A1A1A;
+  --nav-h:60px;
+}
+html{
+  scroll-behavior:smooth;
+  scroll-padding-top:calc(env(safe-area-inset-top,0px) + var(--nav-h));
+  font-size:16px; /* anchor rem so zoom scales proportionally */
+}
+*,*::before,*::after{box-sizing:border-box}
+body{
+  margin:0;
+  min-width:320px; /* prevent shrinking below phone width */
+  background:var(--bg);
+  color:var(--ink);
+  font-family:"Roboto",sans-serif;
+  font-size:1rem;
+  line-height:1.6;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+body::before{
+  content:"";
+  position:fixed;
+  inset:0 0 auto;
+  height:env(safe-area-inset-top,0px);
+  z-index:30;
+  background:var(--bar);
+}
+h1,h2,h3{font-family:"Roboto",sans-serif;font-weight:700;margin:0}
+button{font:inherit;color:inherit;cursor:pointer}
+:focus-visible{outline:3px solid var(--pink);outline-offset:2px}
+.wrap{max-width:1000px;margin:0 auto;padding:0 16px}
+.rule{border:0;border-top:1px solid #E0E0E0;margin:16px 0}
+p{margin:0 0 10px;color:var(--ink)}
+img{max-width:100%}
+
+/* ── navbar ── */
+.nav{
+  position:sticky;
+  top:env(safe-area-inset-top,0px);
+  z-index:20;
+  background:var(--bar);
+  box-shadow:0 2px 10px rgba(0,0,0,0.06);
+}
+body::after{
+  content:"";
+  position:fixed;
+  inset:0 0 auto;
+  height:env(safe-area-inset-top,0px);
+  z-index:30;
+  background:var(--bar);
+  backdrop-filter:blur(0);
+}
+.bar{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:space-between;
+  align-items:center;
+  max-width:1000px;
+  margin:0 auto;
+  padding:0 16px;
+  min-height:var(--nav-h);
+}
+.brand{
+  font-weight:700;
+  font-size:1.4rem;
+  color:var(--ink);
+  text-decoration:none;
+  padding:10px 0;
+  flex-shrink:0;
+}
+.burger{
+  background:none;
+  border:0;
+  padding:10px;
+  display:grid;
+  gap:5px;
+  min-width:44px;
+  min-height:44px;
+  place-items:center;
+}
+.burger span{
+  display:block;
+  width:24px;
+  height:2px;
+  background:var(--ink);
+  border-radius:2px;
+  transition:transform .2s,opacity .2s;
+}
+#menu{display:none;width:100%;padding:0 0 12px}
+#menu.open{display:block}
+#menu ul{list-style:none;margin:0;padding:0}
+#menu a,#menu .top-link{
+  display:block;
+  width:100%;
+  text-align:left;
+  padding:11px 14px;
+  border:0;
+  border-radius:10px;
+  background:none;
+  color:var(--ink);
+  text-decoration:none;
+  font-size:1rem;
+  min-height:44px;
+}
+#menu a:hover,#menu .top-link:hover{background:var(--lav)}
+.sub{display:none;padding-left:14px}
+li.open>.sub{display:block}
+
+@media(min-width:800px){
+  .burger{display:none}
+  #menu{display:block!important;width:auto;padding:0}
+  #menu>ul{display:flex;gap:4px;align-items:center}
+  .has-sub{position:relative}
+  .sub{
+    position:absolute;
+    top:calc(100% + 4px);
+    left:0;
+    min-width:200px;
+    padding:6px;
+    background:#fff;
+    border-radius:12px;
+    box-shadow:0 4px 16px rgba(0,0,0,0.1);
+  }
+}
+
+/* ── hero ── */
+.hero{padding:clamp(28px,6vw,56px) 0 clamp(20px,4vw,40px)}
+.hero h1{
+  font-size:clamp(2.2rem,8vw,4.5rem);
+  line-height:1.1;
+  text-align:center;
+  color:var(--ink);
+}
+
+section{padding:clamp(20px,4vw,36px) 0}
+h2{font-size:clamp(1.5rem,4vw,2rem);margin-bottom:14px;color:var(--ink)}
+
+/* ── about ── */
+.about{
+  background:var(--surface);
+  padding:clamp(16px,3vw,24px);
+  border-radius:16px;
+  box-shadow:0 4px 12px rgba(0,0,0,0.05);
+}
+.about p{font-size:clamp(1rem,2.5vw,1.1rem)}
+
+/* ── profile ── */
+.tabs{display:flex;gap:8px;margin:0 0 16px;flex-wrap:wrap}
+.tab{
+  padding:9px 18px;
+  border:0;
+  border-radius:10px;
+  background:#EFEFEF;
+  font-weight:500;
+  font-size:.95rem;
+  min-height:44px;
+}
+.tab[aria-selected="true"]{background:var(--pink);color:var(--on)}
+.profile{
+  display:grid;
+  grid-template-columns:100px 1fr;
+  gap:16px;
+  align-items:start;
+}
+@media(min-width:500px){.profile{grid-template-columns:120px 1fr}}
+.avatar{
+  width:100%;
+  aspect-ratio:6/7;
+  border-radius:14px;
+  background:var(--peach);
+  box-shadow:0 4px 10px rgba(0,0,0,0.08);
+  overflow:hidden;
+}
+.avatar img{display:block;width:100%;height:100%;object-fit:cover}
+.panel[hidden]{display:none}
+.box{
+  padding:14px;
+  border-radius:16px;
+  background:var(--surface);
+  box-shadow:0 4px 12px rgba(0,0,0,0.05);
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(80px,1fr));
+  gap:10px;
+}
+.box figure{
+  margin:0;
+  aspect-ratio:1;
+  border-radius:50%;
+  box-shadow:0 2px 8px rgba(0,0,0,0.06);
+  overflow:hidden;
+}
+.box figure:nth-child(4n+1){background:var(--peach)}
+.box figure:nth-child(4n+2){background:var(--lav)}
+.box figure:nth-child(4n+3){background:var(--coral)}
+.box figure:nth-child(4n){background:var(--blush)}
+.box figure img{display:block;width:100%;height:100%;object-fit:cover}
+.chips{display:flex;flex-wrap:wrap;gap:8px;grid-column:1/-1}
+.chip{padding:6px 14px;border-radius:999px;background:var(--lav);font-size:.9rem}
+
+/* ── what's new ── */
+.news{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(min(100%,220px),1fr));
+  gap:14px;
+}
+.card{border-radius:16px;background:var(--surface);padding:12px;box-shadow:0 4px 12px rgba(0,0,0,0.05)}
+.thumb{aspect-ratio:16/10;border-radius:10px;background:var(--peach);margin-bottom:10px;overflow:hidden}
+.thumb img{display:block;width:100%;height:100%;object-fit:cover}
+.card h3{font-size:1.1rem;margin-bottom:5px}
+.card p{font-size:.9rem}
+
+/* ── leaderboard ── */
+.slot{
+  min-height:160px;
+  border-radius:16px;
+  background:var(--surface);
+  box-shadow:0 4px 12px rgba(0,0,0,0.05);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:1.1rem;
+  color:var(--ink);
+  padding:20px;
+  text-align:center;
+}
+
+/* ── social ── */
+.arrow{
+  width:44px;height:44px;
+  flex:none;
+  border-radius:50%;
+  border:0;
+  background:var(--surface);
+  box-shadow:0 2px 6px rgba(0,0,0,0.1);
+  display:grid;
+  place-items:center;
+  font-size:1.3rem;
+  transition:background .15s;
+}
+.arrow:hover{background:var(--pink)}
+.social-row{display:flex;align-items:center;gap:10px}
+.social-track{
+  display:flex;
+  gap:10px;
+  flex:1;
+  min-width:0;
+  overflow-x:auto;
+  scroll-snap-type:x mandatory;
+  scroll-behavior:smooth;
+  scrollbar-width:none;
+  padding:6px 2px;
+}
+.social-track::-webkit-scrollbar{display:none}
+.social-item{
+  flex:0 0 calc((100% - 20px) / 3); /* 3 per view on mobile */
+  scroll-snap-align:start;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:5px;
+  color:var(--ink);
+  text-decoration:none;
+  background:none;
+  border:0;
+  padding:0;
+}
+@media(min-width:500px){
+  .social-item{flex:0 0 calc((100% - 30px) / 4)} /* 4 on medium */
+}
+@media(min-width:800px){
+  .social-item{flex:0 0 calc((100% - 50px) / 5)} /* 5 on desktop */
+}
+.icon{
+  width:100%;
+  aspect-ratio:1;
+  border-radius:14px;
+  background:var(--surface);
+  box-shadow:0 4px 10px rgba(0,0,0,0.06);
+  display:grid;
+  place-items:center;
+  transition:background .15s;
+}
+.icon img{width:60%;height:60%;object-fit:contain;display:block}
+.social-item:hover .icon{background:var(--pink)}
+.social-name{font-size:.8rem;text-align:center;line-height:1.2}
+
+footer{
+  padding:20px 16px calc(20px + env(safe-area-inset-bottom,0px));
+  text-align:center;
+  font-size:.9rem;
+  color:#888;
+}
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="bar">
+    <a href="index.html" class="brand">PocaPoucha</a>
+    <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false" aria-controls="menu">
+      <span></span><span></span><span></span>
+    </button>
+    <nav id="menu" aria-label="Main">
+      <ul>
+        <li class="has-sub">
+          <a href="index.html" class="top-link">Home ▾</a>
+          <ul class="sub">
+            <li><a href="index.html#about">About</a></li>
+            <li><a href="index.html#profile">Profile</a></li>
+            <li><a href="index.html#whatsnew">What's new</a></li>
+            <li><a href="index.html#loyalty">Leaderboard / Loyalty card</a></li>
+          </ul>
+        </li>
+        <li class="has-sub">
+          <a href="services.html" class="top-link">Services ▾</a>
+          <ul class="sub">
+            <li><a href="services.html#shop">Shop</a></li>
+            <li><a href="services.html#comms">Comms</a></li>
+          </ul>
+        </li>
+        <li><a href="portofolio.html">Portfolio</a></li>
+        <li><a href="TOS.html">TOS</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main>
+<div class="wrap">
+  <div class="hero" id="home">
+    <h1 id="greeting" aria-live="polite">Welcome</h1>
+  </div>
+  <hr class="rule">
+
+  <section id="about">
+    <h2>About</h2>
+    <div class="about">
+      <p>Poca is here! Artist, Pixel, Animation, L2D model.</p>
+    </div>
+  </section>
+  <hr class="rule">
+
+  <section id="profile">
+    <h2>Profile</h2>
+    <div class="tabs" role="tablist">
+      <button class="tab" role="tab" aria-selected="true" aria-controls="p-gallery" id="t-gallery">Gallery</button>
+    </div>
+    <div class="profile">
+      <div class="avatar" aria-hidden="true">
+        <img src="images/profil.webp" alt="Profile picture">
+      </div>
+      <div>
+        <p>Lorem ipsum dolor sit amet.</p>
+        <p>Consectetur adipiscing elit.</p>
+        <p>Sed do eiusmod tempor.</p>
+        <p>Ut labore et dolore magna.</p>
+      </div>
+    </div>
+    <div style="margin-top:20px">
+      <div class="panel" id="p-gallery" role="tabpanel" aria-labelledby="t-gallery">
+        <div class="box">
+          <figure><img src="images/imageprofile1.webp" alt="" loading="lazy"></figure>
+          <figure><img src="images/imageprofile2.webp" alt="" loading="lazy"></figure>
+          <figure><img src="images/imageprofile3.webp" alt="" loading="lazy"></figure>
+          <figure><img src="images/imageprofile4.webp" alt="" loading="lazy"></figure>
+        </div>
+      </div>
+      <div class="panel" id="p-albums" role="tabpanel" aria-labelledby="t-albums" hidden>
+        <div class="box"><div class="chips"><span class="chip">Lorem</span><span class="chip">Ipsum</span><span class="chip">Dolor</span></div></div>
+      </div>
+    </div>
+  </section>
+  <hr class="rule">
+
+  <section id="whatsnew">
+    <h2>What's new</h2>
+    <div class="news">
+      <article class="card"><div class="thumb"><img src="images/new1.png" alt="" loading="lazy"></div><h3>Lorem ipsum</h3><p>Dolor sit amet, consectetur adipiscing elit sed do.</p></article>
+      <article class="card"><div class="thumb"><img src="images/new2.png" alt="" loading="lazy"></div><h3>Dolor sit amet</h3><p>Ut enim ad minim veniam, quis nostrud exercitation.</p></article>
+      <article class="card"><div class="thumb"><img src="images/new3.png" alt="" loading="lazy"></div><h3>Consectetur</h3><p>Duis aute irure dolor in reprehenderit in voluptate.</p></article>
+    </div>
+  </section>
+  <hr class="rule">
+
+  <section id="social">
+    <h2>Social media</h2>
+    <div class="social-row">
+      <button class="arrow" id="sPrev" aria-label="Previous">‹</button>
+      <div class="social-track" id="socialTrack">
+        <a class="social-item" href="https://vgen.co/PocaPoucha" target="_blank" rel="noopener" aria-label="VGen">
+          <span class="icon"><img src="icons/vgen.png" alt=""></span><span class="social-name">VGen</span>
+        </a>
+        <a class="social-item" href="https://www.tiktok.com/@pocapoucha" target="_blank" rel="noopener" aria-label="TikTok">
+          <span class="icon"><img src="icons/tiktok.png" alt=""></span><span class="social-name">TikTok</span>
+        </a>
+        <a class="social-item" href="https://www.youtube.com/@pocapoucha" target="_blank" rel="noopener" aria-label="YouTube">
+          <span class="icon"><img src="icons/youtube.png" alt=""></span><span class="social-name">YouTube</span>
+        </a>
+        <a class="social-item" href="https://x.com/PocaPoucha" target="_blank" rel="noopener" aria-label="X">
+          <span class="icon"><img src="icons/x.png" alt=""></span><span class="social-name">X</span>
+        </a>
+        <a class="social-item" href="https://xhslink.cn/m/AbsJvkx8HxT" target="_blank" rel="noopener" aria-label="Rednote">
+          <span class="icon"><img src="icons/rednote.png" alt=""></span><span class="social-name">Rednote</span>
+        </a>
+        <a class="social-item" href="https://ko-fi.com/pocapoucha" target="_blank" rel="noopener" aria-label="Ko-fi">
+          <span class="icon"><img src="icons/kofi.png" alt=""></span><span class="social-name">Ko-fi</span>
+        </a>
+        <a class="social-item" href="https://commissions.gg/pocapoucha" target="_blank" rel="noopener" aria-label="commissions.gg">
+          <span class="icon"><img src="icons/commissions.png" alt=""></span><span class="social-name">Commissions</span>
+        </a>
+        <a class="social-item" href="mailto:Pocapoucha@gmail.com" target="_blank" rel="noopener" aria-label="Gmail">
+          <span class="icon"><img src="icons/gmail.png" alt=""></span><span class="social-name">Gmail</span>
+        </a>
+        <a class="social-item" href="https://discord.com/users/1467184266101129236" target="_blank" rel="noopener" aria-label="Discord">
+          <span class="icon"><img src="icons/discord.png" alt=""></span><span class="social-name">Discord</span>
+        </a>
+        <a class="social-item" href="https://bili.im/2zcaoEA" target="_blank" rel="noopener" aria-label="Bilibili">
+          <span class="icon"><img src="icons/bilibili.png" alt=""></span><span class="social-name">Bilibili</span>
+        </a>
+      </div>
+      <button class="arrow" id="sNext" aria-label="Next">›</button>
+    </div>
+  </section>
+  <hr class="rule">
+
+  <section id="loyalty">
+    <h2>Leaderboard / Loyalty card</h2>
+    <div class="slot">Leaderboard / Loyalty Content Area</div>
+  </section>
+</div>
+</main>
+
+<hr class="rule">
+<footer><p>© PocaPoucha</p></footer>
+
+<script>
+(function(){
+  var $=function(s){return document.querySelector(s)},
+      $$=function(s){return[].slice.call(document.querySelectorAll(s))};
+  var burger=$('#burger'),menu=$('#menu');
+
+  burger.addEventListener('click',function(){
+    var o=menu.classList.toggle('open');
+    burger.setAttribute('aria-expanded',o);
+  });
+
+  $$('.has-sub>.top-link').forEach(function(b){
+    b.addEventListener('click',function(e){
+      var li=b.parentNode,isOpen=li.classList.contains('open');
+      if(window.innerWidth<800||!isOpen) e.preventDefault();
+      $$('.has-sub').forEach(function(x){x.classList.remove('open')});
+      if(!isOpen) li.classList.add('open');
+    });
+  });
+
+  document.addEventListener('click',function(e){
+    if(!e.target.closest('.has-sub')){
+      $$('.has-sub').forEach(function(x){x.classList.remove('open')});
+    }
+  });
+
+  $$('#menu a:not(.top-link)').forEach(function(a){
+    a.addEventListener('click',function(){
+      menu.classList.remove('open');
+      burger.setAttribute('aria-expanded','false');
+      $$('.has-sub').forEach(function(x){x.classList.remove('open')});
+    });
+  });
+
+  // social carousel — scroll by visible width
+  var track=$('#socialTrack');
+  function page(d){
+    var w=track.clientWidth;
+    var atEnd=track.scrollLeft+w>=track.scrollWidth-4;
+    var atStart=track.scrollLeft<=4;
+    if(d>0&&atEnd) track.scrollTo({left:0,behavior:'smooth'});
+    else if(d<0&&atStart) track.scrollTo({left:track.scrollWidth,behavior:'smooth'});
+    else track.scrollBy({left:d*w,behavior:'smooth'});
+  }
+  $('#sPrev').addEventListener('click',function(){page(-1)});
+  $('#sNext').addEventListener('click',function(){page(1)});
+
+  // tabs
+  $$('.tab').forEach(function(t){
+    t.addEventListener('click',function(){
+      $$('.tab').forEach(function(o){
+        var on=o===t;
+        o.setAttribute('aria-selected',on);
+        var panel=$('#'+o.getAttribute('aria-controls'));
+        if(panel) panel.hidden=!on;
+      });
+    });
+  });
+})();
+</script>
+</body>
+</html>
